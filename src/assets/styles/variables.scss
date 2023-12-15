@@ -1,0 +1,63 @@
+// Colors
+// ---------------------------------
+
+// Default
+
+$color-transparent: rgba(255, 255, 255, 0);
+$color-default-white: #ffffff;
+
+// Project palette
+// для нейминга цветов используем https://www.htmlcsscolor.com/hex/334482
+
+$color-black: #1f1f1f;
+$color-white: #ffffff;
+$color-ghost-white: #f5f5f6;
+$color-grey: #817e7e;
+$color-ghost-grey: #c2c2c2;
+$color-deep-bisque: #d8b992;
+$color-bisque: #ffe4c4;
+
+// Gradient
+
+
+// Shadows
+
+
+
+// Typography
+// ---------------------------------
+
+// переменная используемая в html для подключения скейлинга
+$fz-default: 16px;
+$lh-default: 24px;
+$fw-default: 400;
+
+// у некоторых шрифтов в ios возникают проблемы с символом рубля
+// https://www.artlebedev.ru/kovodstvo/sections/159/#13
+$ff-rouble: "Rouble", "Arial", sans-serif;
+$ff-main: 'Manrope', sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default: ease;
+$trans-default: 0.3s $tf-default;
+
+// если требуется изинг отличный от $tf-default, то переменную называем не цифрой
+$trans-modal: 0.6s cubic-bezier(0.55, 0, 0.1, 1);
+
+$trans-600: 0.6s $tf-default;
+
+// Viewports
+// ---------------------------------
+
+$vp-375: 375px;
+$vp-744: 744px;
+$vp-1200: 1200px;
+$vp-1440: 1440px;
+
+// Retina
+// ---------------------------------
+
+$retina-dpi: 144dpi;
+$retina-dppx: 1.5dppx;
