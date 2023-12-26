@@ -1,62 +1,76 @@
 <script setup>
 import "../assets/styles/index.scss";
-import Icon from '../components/Icon/Icon.vue'
-import { reactive, ref } from "vue";
+import Icon from '@/components/Icon/Icon.vue';
+import { ref } from "vue";
 
-let reverseBtn = ref("Перевернуть");
-const inputValue = ref('');
-const items = reactive([
+let items = ref([
   {
-    title: "Тайная комната"
+    title: "Яблоки",
+    price: 1000
   },
   {
-    title: "Малавита"
+    title: "Морковь",
+    price: 700
   },
   {
-    title: "Аферистка"
+    title: "Ананас",
+    price: 1200
+  },
+  {
+    title: "Черри",
+    price: 200
+  },
+  {
+    title: "Апельсины",
+    price: 800
+  },
+  {
+    title: "Мандарины",
+    price: 500
+  },
+  {
+    title: "Гранат",
+    price: 600
+  },
+  {
+    title: "Арбуз",
+    price: 1700
   }
 ]);
-let item = {};
 
-const reverse = () => {
-  reverseBtn.value = reverseBtn.value.split("").reverse().join("");
-};
+let productPrice = items.value;
 
-const addMovie = () => {
-  item.title = inputValue.value;
-  items.push(item);
+const sortByPriceMin = () => {
+  productPrice.sort((a, b) => a.price - b.price);
+  items = productPrice;
 }
 
-const removeMovie = () => {
-  items.splice(item, 1);
+const sortByPriceMax = () => {
+  productPrice.sort((a, b) => b.price - a.price);
+  items = productPrice;
 }
 
 </script>
 
 <template>
-  <div class="container template">
-    <div class="intro">
-      <p class="template__heading">Задание 1</p>
-      <button class="intro__btn" @click="reverse">{{ reverseBtn }}</button>
-    </div>
-    <div class="movies">
-      <p class="template__heading">Задание 2</p>
-      <h2 class="movies__title">Список любимых фильмов</h2>
-      <ul class="movies__list">
-        <li class="movies__item" v-for="item in items" :key="item.title">
+  <div class="container">
+    <div class="template">
+      <div class="template__heading">
+        <h2 class="template__title">Список товаров</h2>
+        <div class="template__sort">
+          <Icon class="template__icon" name="sort" />
+          <div class="template__hidden">
+            <button class="template__sort-btn" type="button" @click="sortByPriceMin">По цене (сначала дешевые)</button>
+            <button class="template__sort-btn" type="button" @click="sortByPriceMax">По цене (сначала дорогие)</button>
+          </div>
+        </div>
+      </div>
+      <ul class="template__list">
+        <li class="template__item" v-for="item in items" :key="item.title">
           <p>{{ item.title }}</p>
-          <button class="movies__remove" @click="removeMovie">
-            <Icon class="movies__icon" name="close" />
-          </button>
+          <p>{{ item.price }}</p>
         </li>
       </ul>
-      <form class="movies__form" action="#">
-        <label>
-          <input class="movies__input" v-model="inputValue" type="text" name="movies__input" value=""
-            placeholder="Введите название фильма">
-        </label>
-        <button class="movies__add" @click="addMovie">Добавить</button>
-      </form>
     </div>
   </div>
 </template>
