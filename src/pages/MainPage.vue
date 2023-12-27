@@ -38,16 +38,12 @@ let items = ref([
   }
 ]);
 
-let productPrice = items.value;
-
 const sortByPriceMin = () => {
-  productPrice.sort((a, b) => a.price - b.price);
-  items = productPrice;
+  return items.value.sort((a, b) => a.price - b.price);
 }
 
 const sortByPriceMax = () => {
-  productPrice.sort((a, b) => b.price - a.price);
-  items = productPrice;
+  return items.value.sort((a, b) => b.price - a.price);
 }
 
 </script>
