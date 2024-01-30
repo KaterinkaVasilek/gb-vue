@@ -1,0 +1,26 @@
+.product-details {
+  margin-top: 100px;
+}
+
+.product-details__item {
+  padding: 15px;
+  width: 300px;
+  border: 1px solid green;
+  border-radius: 10px;
+
+  &:not(:last-of-type) {
+    margin-bottom: 15px;
+  }
+}
+
+.product-details__title {
+  margin-bottom: 15px;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-details__desc {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
